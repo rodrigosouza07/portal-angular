@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MateriasComponent } from './materias/materias.component';
 
 const routes: Routes = [
-  { path: 'materias', component: MateriasComponent },
+  { path: '', component: MateriasComponent },
+  {
+      path: 'materias',
+      loadChildren:() => import('./materias/materias.component').then(m => m.MateriasComponent)
+  }
 ];
 
 @NgModule({
